@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>icsharp</authors>
+    <owners>icsharp</owners>
+    <licenseUrl>https://github.com/icsharp/CacheManager.Serialization.fastJSON/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/icsharp/CacheManager.Serialization.fastJSON</projectUrl>	
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>CacheManager serializer for fastJSON.</description>
+    <releaseNotes>CacheManager.Serialization.fastJSON 0.8.0</releaseNotes>
+    <tags>CacheManager fastJSON</tags>
+  </metadata>
+</package>
