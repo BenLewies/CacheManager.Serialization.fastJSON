@@ -14,7 +14,7 @@ namespace CacheManager.Serialization.fastJSON
 		/// </summary>
 		/// <param name="part">The configuration part.</param>
 		/// <returns>The builder instance.</returns>
-		public static ConfigurationBuilderCachePart WithfastJsonSerializer(this ConfigurationBuilderCachePart part)
+		public static ConfigurationBuilderCachePart WithFastJsonSerializer(this ConfigurationBuilderCachePart part)
 		{
 			NotNull(part, nameof(part));
 
@@ -27,7 +27,7 @@ namespace CacheManager.Serialization.fastJSON
 		/// <param name="part">The configuration part.</param>
 		/// <param name="fastJsonSettings">The settings to be used during serialization/deserialization.</param>	
 		/// <returns>The builder instance.</returns>
-		public static ConfigurationBuilderCachePart WithfastJsonSerializer(this ConfigurationBuilderCachePart part, JSONParameters fastJsonSettings)
+		public static ConfigurationBuilderCachePart WithFastJsonSerializer(this ConfigurationBuilderCachePart part, JSONParameters fastJsonSettings)
 		{
 			NotNull(part, nameof(part));
 
