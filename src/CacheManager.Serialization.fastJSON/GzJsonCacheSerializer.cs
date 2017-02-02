@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.IO.Compression;
+using CacheManager.Core.Internal;
 using CacheManager.Core.Utility;
 using fastJSON;
+
 namespace CacheManager.Serialization.fastJSON
 {
 	/// <summary>
 	/// Implements the <see cref="ICacheSerializer"/> contract using <c>Newtonsoft.Json</c> and the <see cref="GZipStream "/> loseless compression.
 	/// </summary>
-	public class GzJsonCacheSerializer : fastJSONCacheSerializer
+	public class GzJsonCacheSerializer : FastJsonCacheSerializer
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="GzJsonCacheSerializer"/> class.
@@ -29,10 +32,10 @@ namespace CacheManager.Serialization.fastJSON
 		}
 
 		/// <inheritdoc/>
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0", Justification = "Is checked by GetString")]
+		[SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0", Justification = "Is checked by GetString")]
 		public override object Deserialize(byte[] data, Type target)
 		{
-			var compressedData = this.Decompression(data);
+			var compressedData = Decompression(data);
 
 			return base.Deserialize(compressedData, target);
 		}
@@ -40,9 +43,9 @@ namespace CacheManager.Serialization.fastJSON
 		/// <inheritdoc/>
 		public override byte[] Serialize<T>(T value)
 		{
-			var data = base.Serialize<T>(value);
+			var data = base.Serialize(value);
 
-			return this.Compression(data);
+			return Compression(data);
 		}
 
 		/// <summary>

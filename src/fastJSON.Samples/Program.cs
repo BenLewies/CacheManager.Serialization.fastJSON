@@ -12,7 +12,8 @@ namespace fastJSON.Samples
 		public string Name { get; set; }
 		public DateTime CreatedDate { get; set; }
 	}
-	class Program
+
+    static class Program
 	{
 		static void Main(string[] args)
 		{

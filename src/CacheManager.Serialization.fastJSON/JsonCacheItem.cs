@@ -1,5 +1,5 @@
-﻿using CacheManager.Core;
-using System;
+﻿using System;
+using CacheManager.Core;
 
 namespace CacheManager.Serialization.fastJSON
 {
@@ -23,8 +23,8 @@ namespace CacheManager.Serialization.fastJSON
 		public byte[] Value { get; set; }
 
 		public static JsonCacheItem FromCacheItem<TCacheValue>(CacheItem<TCacheValue> item, byte[] value)
-			=> new JsonCacheItem()
-			{
+			=> new JsonCacheItem
+			    {
 				CreatedUtc = item.CreatedUtc,
 				ExpirationMode = item.ExpirationMode,
 				ExpirationTimeout = item.ExpirationTimeout,
@@ -36,13 +36,13 @@ namespace CacheManager.Serialization.fastJSON
 
 		public CacheItem<T> ToCacheItem<T>(object value)
 		{
-			var item = string.IsNullOrWhiteSpace(this.Region) ?
-				new CacheItem<T>(this.Key, (T)value, this.ExpirationMode, this.ExpirationTimeout) :
-				new CacheItem<T>(this.Key, this.Region, (T)value, this.ExpirationMode, this.ExpirationTimeout);
+			var item = string.IsNullOrWhiteSpace(Region) ?
+				new CacheItem<T>(Key, (T)value, ExpirationMode, ExpirationTimeout) :
+				new CacheItem<T>(Key, Region, (T)value, ExpirationMode, ExpirationTimeout);
 
-			item.LastAccessedUtc = this.LastAccessedUtc;
+			item.LastAccessedUtc = LastAccessedUtc;
 
-			return item.WithCreated(this.CreatedUtc);
+			return item.WithCreated(CreatedUtc);
 		}
 	}
 }
